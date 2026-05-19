@@ -106,6 +106,15 @@ public class ChunkManager : MonoBehaviour
         }
     }
 
+    public void ReduceSpeedAfterCrush()
+    {
+        _currentSpeed *= 0.5f;
+        if (_currentSpeed < StartMoveSpeed)
+        {
+            Debug.Log("Lose");
+        }
+    }
+    
     private void RecycleBlockPassedCamera()
     {
         float recycleThreshold = CameraTransform.position.z - recycleDistanceBehindCamera;
