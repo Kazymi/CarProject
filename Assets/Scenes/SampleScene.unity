@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChunkManager: {fileID: 185430523}
+  Car: {fileID: 913377419}
 --- !u!54 &913377422
 Rigidbody:
   m_ObjectHideFlags: 0
