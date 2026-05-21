@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ChunkManager : MonoBehaviour
+public class ChunkManager : MonoBehaviour, ISpeedForBuff, IMultiplierSpeedForBuff
 {
     public Transform CameraTransform;
     public List<MonoPooled> Chunks = new List<MonoPooled>();
@@ -19,6 +19,7 @@ public class ChunkManager : MonoBehaviour
 
     public float recycleDistanceBehindCamera = 15;
 
+    private float speedMultiplier;
     private int amountSpawnedChunk;
     private List<Pool<MonoPooled>> lastChunks = new List<Pool<MonoPooled>>();
     private List<MonoPooled> _activeChunks = new List<MonoPooled>();
@@ -38,6 +39,11 @@ public class ChunkManager : MonoBehaviour
         SpawnInitialChunks();
     }
 
+    public MonoPooled GetLastChunk()
+    {
+        return _activeChunks.Last();
+    }
+    
     private void Update()
     {
         RecalculateSpeed();
@@ -99,6 +105,7 @@ public class ChunkManager : MonoBehaviour
     private void MoveBlocks(float moveSpeed)
     {
         float moveDistance = moveSpeed * Time.deltaTime;
+        moveDistance += moveDistance * speedMultiplier;
         Vector3 moveOffset = new Vector3(0, 0, -moveDistance);
         foreach (var activeChunk in _activeChunks)
         {
@@ -114,7 +121,7 @@ public class ChunkManager : MonoBehaviour
             Debug.Log("Lose");
         }
     }
-    
+
     private void RecycleBlockPassedCamera()
     {
         float recycleThreshold = CameraTransform.position.z - recycleDistanceBehindCamera;
@@ -160,10 +167,11 @@ public class ChunkManager : MonoBehaviour
         amountSpawnedChunk++;
         switch (amountSpawnedChunk)
         {
-          case < 10 :   newChunk.GetComponent<Chunk>().ChunkSpawned(Random.Range(0,1));  break;
-          case < 50 :   newChunk.GetComponent<Chunk>().ChunkSpawned(Random.Range(0,2));  break;
-          case > 70 :   newChunk.GetComponent<Chunk>().ChunkSpawned(2);  break;
+            case < 10: newChunk.GetComponent<Chunk>().ChunkSpawned(Random.Range(0, 1)); break;
+            case < 50: newChunk.GetComponent<Chunk>().ChunkSpawned(Random.Range(0, 2)); break;
+            case > 70: newChunk.GetComponent<Chunk>().ChunkSpawned(2); break;
         }
+
         if (lastChunks.Count >= 2)
         {
             lastChunks.Remove(lastChunks.First());
@@ -173,5 +181,26 @@ public class ChunkManager : MonoBehaviour
         newChunk.transform.position = spawnPosition;
         newChunk.transform.SetParent(transform);
         return newChunk;
+    }
+
+    public void AddSpeed(float speed)
+    {
+        _currentSpeed += speed;
+    }
+
+    public void RemoveSpeed(float speed)
+    {
+        _currentSpeed -= speed;
+        if (_currentSpeed < StartMoveSpeed) _currentSpeed = StartMoveSpeed;
+    }
+
+    public void AddSpeedMultiplier(float speedMultiplier)
+    {
+        this.speedMultiplier += speedMultiplier;
+    }
+
+    public void RemoveSpeedMultiplier(float speedMultiplier)
+    {
+        this.speedMultiplier -= speedMultiplier;
     }
 }
