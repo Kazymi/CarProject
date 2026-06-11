@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 58f51014f37094ead8feba46c78b1868
 ModelImporter:
-  serializedVersion: 21300
+  serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
   - first:
@@ -12,8 +12,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: civil-car-A-secondary_mat.001
+    second: {fileID: 2100000, guid: 72257bf1b740f4f9b85fff62ddc42096, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: civil-car-A-tire-black_mat
     second: {fileID: 2100000, guid: b0d1c007f0b4a4f7297c007830722fed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: civil-car-A-tire-black_mat.001
+    second: {fileID: 2100000, guid: 80d3cf83c5f884f50835e77204c9587f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -22,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: civil-car-A-tire-metal_mat.001
+    second: {fileID: 2100000, guid: 1c071d2246f8a454e8736623508d9aea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: civil-car-A-window-sill_mat
     second: {fileID: 2100000, guid: 3052dd58a26cb48cebfc133e84fc75d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: civil-car-A-window-sill_mat.001
+    second: {fileID: 2100000, guid: 674600d8b149c471f837d1c1486f68fa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -32,18 +52,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: civil-car-A-windows_mat.001
+    second: {fileID: 2100000, guid: 37dc366cd1c7847e999b839ed947fd6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: civil-car-A_mat
     second: {fileID: 2100000, guid: 4ee6a39a85b6043139c4f8aa98842614, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: civil-car-A_mat.001
+    second: {fileID: 2100000, guid: cc598dcf1ce614f7782fc314687ce24b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: main-color-palette_mat
     second: {fileID: 2100000, guid: 17a84ca30da24407285e5a9011e774ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: main-color-palette_mat.011
+    second: {fileID: 2100000, guid: 3f672f92fccd946f6871e818d6298ff8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rear-lights
+    second: {fileID: 2100000, guid: 1b6a076382f3941999f7ad22a2d06138, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -75,6 +115,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -102,6 +143,7 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -134,6 +176,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 

@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class ChunkManager : MonoBehaviour, ISpeedForBuff, IMultiplierSpeedForBuff
 {
+    public LoseScreen LoseScreen;
     public Transform CameraTransform;
     public List<MonoPooled> Chunks = new List<MonoPooled>();
 
@@ -43,7 +44,7 @@ public class ChunkManager : MonoBehaviour, ISpeedForBuff, IMultiplierSpeedForBuf
     {
         return _activeChunks.Last();
     }
-    
+
     private void Update()
     {
         RecalculateSpeed();
@@ -118,7 +119,7 @@ public class ChunkManager : MonoBehaviour, ISpeedForBuff, IMultiplierSpeedForBuf
         _currentSpeed *= 0.5f;
         if (_currentSpeed < StartMoveSpeed)
         {
-            Debug.Log("Lose");
+            LoseScreen.Lose();
         }
     }
 

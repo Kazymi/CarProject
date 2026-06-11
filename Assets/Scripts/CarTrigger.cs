@@ -12,6 +12,7 @@ public class CarTrigger : MonoBehaviour, IInvisibleForBuff
     {
         if (other.tag == "Car")
         {
+            CrushVolumeChanger.Instance.Crush();
             Car.Crush();
             other.GetComponent<CarCrashAnimation>()?.OnCrash(transform);
             ChunkManager.ReduceSpeedAfterCrush();
